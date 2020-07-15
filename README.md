@@ -1,2 +1,2 @@
-# registroEstudiantes_ITLA
+# registrodeEstudiantesPOO
 Tarea programacion web(proyecto registro de estudiantes)

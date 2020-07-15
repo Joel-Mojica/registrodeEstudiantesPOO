@@ -1,16 +1,4 @@
 <?php 
-<<<<<<< HEAD
-include 'utility.php';
-session_start();
-
-$_SESSION['estudiantes'] = isset($_SESSION['estudiantes']) ? $_SESSION['estudiantes'] : array();
-
-$listaEstudiante = $_SESSION['estudiantes'];
-
-if(!empty($listaEstudiante)){
-    if(isset($_GET['carreraId'])){
-       $listaEstudiante = searchProperty($listaEstudiante,'carrera',$_GET['carreraId']);
-=======
 
 include 'utility.php';//sino funciona colocar require_once el problema pasa por que se incluye mas de una vez
 include 'estudiante.php';
@@ -27,7 +15,6 @@ if(!empty($listaEstudiante)){
     if(isset($_GET['carreraId'])){
             
        $listaEstudiante = $utilities->searchProperty($listaEstudiante,'carrera',$_GET['carreraId']);
->>>>>>> 39ea508... proyecto funcional registro de estudiantes POO
     }
 }
 
@@ -46,11 +33,7 @@ if(!empty($listaEstudiante)){
     
 <div class="container jumbotron mt-3">
     <h1 class="text-primary">AGREGAR ESTUDIANTES </h1>
-<<<<<<< HEAD
-    <a href="agregarEstudiantes.php" class="btn btn-success">Agregar nuevo estudiante</a>
-=======
     <a href="agregar.php" class="btn btn-success">Agregar nuevo estudiante</a>
->>>>>>> 39ea508... proyecto funcional registro de estudiantes POO
 </div>
 
 
@@ -71,27 +54,13 @@ if(!empty($listaEstudiante)){
 
         <?php if(empty($listaEstudiante)): ?>
                 <h1 >No Tiene ningun Registro</h1>
-<<<<<<< HEAD
-                <a href="agregarEstudiantes.php"><button class="btn btn-success ml-3 mt-2">Pulse aqui para agregar estudiante</button></a>
-=======
                 <a href="agregar.php"><button class="btn btn-success ml-3 mt-2">Pulse aqui para agregar estudiante</button></a>
->>>>>>> 39ea508... proyecto funcional registro de estudiantes POO
             <?php else: ?>
             
                 <?php foreach ($listaEstudiante as $estudiante): ?>
 
                     <div class="col-4">
                         <div class="card mt-5" style="width: 18rem;">
-<<<<<<< HEAD
-                            <div class="card-body">
-                                <h4 class="card-title"><?php echo $estudiante['nombre']; ?></h4>
-                                <h4 class="card-subtitle mb-2 text-muted"><?php echo $estudiante['apellido']; ?></h4>
-                                <p class="card-text text-muted"><?php echo getCompanyName($estudiante['carrera']); ?></p>
-                                <h7 class="card-title"><label for="estado" class="text-success">Estado:</label><?php echo $estudiante['estado']; ?></h7>
-                                <hr>
-                                <a href="editar.php?id=<?php echo $estudiante['id']; ?>" class="card-link">Editar</a>
-                                <a href="borrar.php?id=<?php echo $estudiante['id']; ?>" class="card-link">Borrar</a>
-=======
 
                         <img class="bd-placeholder-img card-img-top" src="<?php echo 'fotoEstudiante/'.$estudiante->profilePhoto; ?>" width="100%" height="200" aria-label="Placeholder: Thumbnail"></img>
 
@@ -102,8 +71,7 @@ if(!empty($listaEstudiante)){
                                 <h7 class="card-title"><label for="estado" class="text-success">Estado:</label><?php echo $estudiante->estado; ?></h7>
                                 <hr>
                                 <a href="editar.php?id=<?php echo $estudiante->id; ?>" class="card-link">Editar</a>
-                                <a href="borrar.php?id=<?php echo $estudiante->id; ?>" class="card-link">Borrar</a>
->>>>>>> 39ea508... proyecto funcional registro de estudiantes POO
+                                <a href="borrar.php?id=<?php echo $estudiante->id; ?>" class="card-link" onclick="preguntar(<?php $estudiante->id; ?>)">Borrar</a>
                             </div>
                         </div>
                     </div> 
@@ -114,4 +82,13 @@ if(!empty($listaEstudiante)){
 </div>
 
 </body>
+
+<script>
+    function preguntar(id){
+        if(confirm('Estas seguro que desea eliminar este registro?')){
+            window.location.href = "borrar.php?id=<?php echo $estudiante->id; ?>";
+        }
+    }
+</script>
+
 </html>

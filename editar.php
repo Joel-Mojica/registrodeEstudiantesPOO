@@ -1,42 +1,4 @@
 <?php 
-<<<<<<< HEAD
-include 'utility.php';
-session_start();
-
-if(isset($_GET['id'])){
-    $estudianteID = $_GET['id'];
-
-    $_SESSION['estudiantes'] = isset($_SESSION['estudiantes']) ? $_SESSION['estudiantes'] : array();
-
-    $estudiantes = $_SESSION['estudiantes'];
-
-    $elemento = searchProperty($estudiantes,'id',$estudianteID)[0];
-    $elementoIndex = getIndexElement($estudiantes,'id',$estudianteID);
-
-        if(isset($_POST['nombre']) && isset($_POST['apellido']) && isset($_POST['carrera']) && isset($_POST['estado']) ){
-    
-                $actualizarEstudiante= ['id'=>$estudianteID,'nombre'=> $_POST['nombre'], 'apellido'=> $_POST['apellido'], 'carrera'=> $_POST['carrera'], 'estado'=>$_POST['estado'] ];
-
-                $estudiantes[$elementoIndex] = $actualizarEstudiante;
-                
-                var_dump($estudiantes);
-                    $_SESSION['estudiantes'] = $estudiantes;
-            
-                    header('location: index.php');
-                    exit();
-        }
-
-
-
-
-
-
-
-    }else{
-
-            header('location: index.php');
-            exit();
-=======
 
 include 'utility.php';//sino funciona colocar require_once el problema pasa por que se incluye mas de una vez
 include 'estudiante.php';
@@ -68,7 +30,6 @@ if(isset($_GET['id'])){
 
      header('location: index.php');
      exit();
->>>>>>> 39ea508... proyecto funcional registro de estudiantes POO
 }
 
 //Utilize el mismo metodo que usted, por una parte aun no se porque usamos un array dentro de otro
@@ -86,44 +47,25 @@ if(isset($_GET['id'])){
 <body>
 <hr>
 
-<<<<<<< HEAD
-<h1 class="container bg-primary radius text-white" style="border-radius:3px">Registro de estudiantes ITLA</h1>
-
-<form action="editar.php?=<?php echo $elemento['id']; ?>" method="post">
-=======
 <h1 class="container bg-primary radius text-white" style="border-radius:3px">Editar / Actualizar Datos Estudiantes ITLA</h1>
 
 <form action="editar.php?=id<?php echo $elemento->id; ?>" method="post">
->>>>>>> 39ea508... proyecto funcional registro de estudiantes POO
 
     <div class="formu container border jumbotron">
 
                     <label for="nombre">NOMBRE</label>
-<<<<<<< HEAD
-                    <input class="form-group form-text" value="<?php echo $elemento['nombre']; ?>" type="text" style="width:600px" name="nombre" id="nombre">
-                
-                    <label for="apellido">APELLIDO</label>
-                    <input class="form-group form-text" value="<?php echo $elemento['apellido']; ?>" type="text" style="width:600px" name="apellido" id="nombre">
-=======
                     <input class="form-group form-text" value="<?php echo $elemento->nombre; ?>" type="text" style="width:600px" name="nombre" id="nombre">
                 
                     <label for="apellido">APELLIDO</label>
                     <input class="form-group form-text" value="<?php echo $elemento->apellido; ?>" type="text" style="width:600px" name="apellido" id="nombre">
->>>>>>> 39ea508... proyecto funcional registro de estudiantes POO
                 
                     <label for="carrera">CARRERA</label>
                     <select class="form-group form-text" name="carrera" id="carrera">
                 <?php 
                         
-<<<<<<< HEAD
-                foreach($carreras as $id => $nombreCarreras): ?>
-
-                    <?php if($id == $elemento['carrera']): ?>
-=======
                 foreach($utilities->carreras as $id => $nombreCarreras): ?>
 
                     <?php if($id == $elemento->carreras): ?> 
->>>>>>> 39ea508... proyecto funcional registro de estudiantes POO
                         <option selected value="<?php echo $id; ?>"> <?php echo $nombreCarreras; ?> </option>
                     <?php else: ?> 
                         <option  value="<?php echo $id; ?>"> <?php echo $nombreCarreras; ?> </option>
