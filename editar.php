@@ -49,7 +49,7 @@ if(isset($_GET['id'])){
 
 <h1 class="container bg-primary radius text-white" style="border-radius:3px">Editar / Actualizar Datos Estudiantes ITLA</h1>
 
-<form action="editar.php?=id<?php echo $elemento->id; ?>" method="post">
+<form action="editar.php?id=<?php echo $elemento->id; ?>" method="post">
 
     <div class="formu container border jumbotron">
 
@@ -57,7 +57,7 @@ if(isset($_GET['id'])){
                     <input class="form-group form-text" value="<?php echo $elemento->nombre; ?>" type="text" style="width:600px" name="nombre" id="nombre">
                 
                     <label for="apellido">APELLIDO</label>
-                    <input class="form-group form-text" value="<?php echo $elemento->apellido; ?>" type="text" style="width:600px" name="apellido" id="nombre">
+                    <input class="form-group form-text" value="<?php echo $elemento->apellido; ?>" type="text" style="width:600px" name="apellido" id="apellido">
                 
                     <label for="carrera">CARRERA</label>
                     <select class="form-group form-text" name="carrera" id="carrera">
@@ -75,14 +75,14 @@ if(isset($_GET['id'])){
                     </select>
     
          <div>
-            <label for="estado">ESTADO</label>
+         <label for="estado">ESTADO</label>
             <input type="radio"  name="estado" value="activo" checked><label for="activo">ACTIVO</label>
             <input type="radio"  name="estado" value="inactivo"><label for="inactivo">INACTIVO</label>
             </div>
             
             <hr>
             <input type="submit" value="GUARDAR" class="btn btn-success">
-            <input type="submit" value="ATRAS" class="btn btn-success">
+            <a href="index.php"><input type="submit" value="ATRAS" class="btn btn-danger"></a>
         
          </div>
     </div>
